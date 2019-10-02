@@ -1,0 +1,98 @@
+ADMIN ( headers : {Authorization : Token})
+/admin 
+    POST
+    /workspace/create
+     1.name
+    POST
+    /workspace/:workspaceId
+    ProjectId:
+    method: addProjects
+    
+    
+    GET
+    /workspace/:workspaceId?get=projects
+
+    GET
+    /workspace
+   
+   POST
+   /projects/create
+   
+   1.name:
+   2.workspaceId
+   3.startDate
+   3.DueDate
+   4.priority
+   5.teamId
+
+   POST
+   /projects/:projectId 
+    projectId:
+    TeamId: or UserId
+    method:addTeam or adduser
+
+
+    GET
+    /projects
+
+    GET
+    /projects/:projectId?get=tasks
+
+
+    POST
+    /tasks/create
+
+    1.name: 
+    2.projectId:
+    3.startDate:
+    4.DueDate:
+    5.priority
+
+    
+
+
+    POST
+    /teams/create
+    1.name
+    2.userArray
+    3.ProjectId
+
+    /teams/:teamId
+    1.TeamId
+    2.ProjectId or userArray
+    3.method: addProject or addUsers
+
+    GET
+    /teams/:teamID?get:projects
+
+    
+    GET
+    /teams
+
+
+    POST
+    /users/create
+    1.email
+    2.password
+    3.name
+
+    POST
+    /users/:userId
+    1.TeamId or ProjectId or TaskId
+    2.method: getTeams or getProjects or getTasks
+
+    GET
+    /users/:userId?get=projects
+   
+    GET
+    /users
+
+ENDUSER ( headers : {Authorization : Token})
+
+    GET
+    /users/:userId?get=tasks or teams or projects
+
+
+
+
+
