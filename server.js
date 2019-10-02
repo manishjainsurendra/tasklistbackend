@@ -6,7 +6,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const adminRouter = require("./routes/adminRoutes");
-const userRouter = require("./routes/userRoutes");
+//const userRouter = require("./routes/userRoutes");
 const path = require("path");
 
 // constants
@@ -26,22 +26,22 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 // routes
 app.use("/admin", adminRouter);
-app.use("/users", userRouter);
+//app.use("/users", userRouter);
 
 // mongo connection and server
 const server = async () => {
-    try {
-        await mongoose.connect(MONGO_CONNECTION, {
-            useNewUrlParser: true,
-            useCreateIndex: true,
-            useFindAndModify: false
-        });
-        app.listen(PORT, () => {
-            console.log("server started on ", PORT);
-        });
-    } catch (err) {
-        console.log(err);
-    }
+  try {
+    await mongoose.connect(MONGO_CONNECTION, {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useFindAndModify: false
+    });
+    app.listen(PORT, () => {
+      console.log("server started on ", PORT);
+    });
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 server();
