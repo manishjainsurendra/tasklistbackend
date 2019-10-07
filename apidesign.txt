@@ -1,12 +1,8 @@
 ADMIN ( headers : {Authorization : Token})
 /admin 
     POST
-    /workspace/create
+    /workspace/create - done initial
      1.name
-    POST
-    /workspace/:workspaceId
-    ProjectId:
-    method: addProjects
     
     
     GET
@@ -16,7 +12,7 @@ ADMIN ( headers : {Authorization : Token})
     /workspace
    
    POST
-   /projects/create
+   /projects/create - done initial
    
    1.name:
    2.workspaceId
@@ -26,10 +22,10 @@ ADMIN ( headers : {Authorization : Token})
    5.teamId
 
    POST
-   /projects/:projectId 
+   /projects/addTeam/:projectId - done initial 
     projectId:
-    TeamId: or UserId
-    method:addTeam or adduser
+    TeamId
+    method:addTeam 
 
 
     GET
@@ -40,7 +36,7 @@ ADMIN ( headers : {Authorization : Token})
 
 
     POST
-    /tasks/create
+    /tasks/create - done initial
 
     1.name: 
     2.projectId:
@@ -51,7 +47,7 @@ ADMIN ( headers : {Authorization : Token})
     
 
 
-    POST
+    POST - done initial
     /teams/create
     1.name
     2.userArray
@@ -59,8 +55,8 @@ ADMIN ( headers : {Authorization : Token})
 
     /teams/:teamId
     1.TeamId
-    2.ProjectId or userArray
-    3.method: addProject or addUsers
+    2.userArray
+    3.method:  addUsers
 
     GET
     /teams/:teamID?get:projects
@@ -71,7 +67,7 @@ ADMIN ( headers : {Authorization : Token})
 
 
     POST
-    /users/create
+    /users/create - done initial
     1.email
     2.password
     3.name
