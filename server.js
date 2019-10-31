@@ -18,7 +18,7 @@ const app = express();
 // middlewares
 app.use(cors());
 app.use(morgan("dev"));
-//app.use(express.json());
+app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 //app.use(express.urlencoded({ extended: true }));
 
@@ -30,18 +30,18 @@ app.use("/users", userRouter);
 
 // mongo connection and server
 const server = async () => {
-    try {
-        await mongoose.connect(MONGO_CONNECTION, {
-            useNewUrlParser: true,
-            useCreateIndex: true,
-            useFindAndModify: false
-        });
-        app.listen(PORT, () => {
-            console.log("server started on ", PORT);
-        });
-    } catch (err) {
-        console.log(err);
-    }
+  try {
+    await mongoose.connect(MONGO_CONNECTION, {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useFindAndModify: false
+    });
+    app.listen(PORT, () => {
+      console.log("server started on ", PORT);
+    });
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 server();
